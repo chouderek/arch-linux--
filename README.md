@@ -5,7 +5,7 @@
   
 
 ## 1. 安裝前準備  
-    _[官網下載ISO 安裝映像檔, 然後使用dd指令將iso檔存進USB隨身碟][1]_  
+    [官網下載ISO 安裝映像檔, 然後使用dd指令將iso檔存進USB隨身碟][1]  
       指令： dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync  
 
 [1]:https://wiki.archlinux.org/index.php/USB_flash_installation_media
@@ -41,4 +41,13 @@
       * 指令：mkdir /mnt/home, mount /dev/sda3 /mnt/home  
 
 # 8. 安裝
+      * 指令：vi /etc/pacman.d/mirrorlist, 可以把前面的server取消掉，把臺灣排在第一順位。
+      * 指令：pacstrap -i /mnt base base-devel, 開始安裝基本的程式  
+  
+# 9. 產生fstab  
+      * 指令：genfstab -U -p /mnt >> /mnt/etc/fstab, 用genfstab指令產生fstab  
+  
+# 10. 切換帳號  
+      * 指令：arch-chroot /mnt
+
 
