@@ -15,7 +15,7 @@
 >若此資料夾不存在，代表就可能是bios開機  
   
 ## 3. 網路連線  
-    若使用_**wifi**_上網,要先確認介面名稱。  
+    若使用wifi上網,要先確認介面名稱。  
     1. 指令：ip link, 確認介面名稱爲wlpxxxxx  
     2. 指令：wifi-menu wlpxxxxx, 連接上網。  
   
@@ -48,6 +48,24 @@
       * 指令：genfstab -U -p /mnt >> /mnt/etc/fstab, 用genfstab指令產生fstab  
   
 # 10. 切換帳號  
-      * 指令：arch-chroot /mnt
+      * 指令：arch-chroot /mnt  
+  
+# 11. 設定語系  
+      * 指令： vi /etc/locale.gen,修改把#zh_TW.UTF-8 UTF-8 和#zh_TW BIG5 前面的#拿掉
+      * 指令：locale-gen, 重新產生一次語系
+      * 指令：echo LANG=en_US.UTF-8 > /etc/locale.conf
+      * 指令：export LANG=en_US.UTF-8  
+  
+# 12. 設定時區  
+      * 指令：ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime  
+  
+# 13. 設定硬體時鐘  
+      * 指令：hwclock --systohc --utc  
+  
+# 14. 設定Hostname  
+      * 指令：echo myname > /etc/hostname
+      
+
+
 
 
