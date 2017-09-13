@@ -12,10 +12,16 @@
 
 ## 2. 確認開機模式  
     指令： ls /sys/firmware/efi/efivars  
-    >若此資料夾不存在，代表就可能是bios開機  
+>
+    若此資料夾不存在，代表就可能是bios開機  
   
 ## 3. 網路連線  
     若使用_**wifi**_上網,要先確認介面名稱。  
     1. 指令：ip link, 確認介面名稱爲wlpxxxxx  
     2. 指令：wifi-menu wlpxxxxx, 連接上網。  
+  
+## 4. 更新系統時間  
+    指令：timedatectl set-ntp true  
+  
+## 5. 
 
