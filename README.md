@@ -22,5 +22,11 @@
 ## 4. 更新系統時間  
     指令：timedatectl set-ntp true  
   
-## 5. 
+## 5. 分割硬碟  
+      * 指令：**fdisk -l**, 可以查看硬碟名稱,我的硬碟是/dev/sda1和/dev/sda2
+      * 指令：**fdisk /dev/sda, 接着要刪除先前的分割表，並建立新的分割表。
+      * 接著在fdisk 的command 下, 輸入p查看, d 刪除, n 建立, w 寫入。  
+      * 接著使用cfdisk 指令, 會有圖形化的分割。
+      *
+
 
