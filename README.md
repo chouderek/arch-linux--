@@ -27,6 +27,18 @@
       * 指令：**fdisk /dev/sda, 接着要刪除先前的分割表，並建立新的分割表。
       * 接著在fdisk 的command 下, 輸入p查看, d 刪除, n 建立, w 寫入。  
       * 接著使用cfdisk 指令, 會有圖形化的分割。
-      *
+      * 硬碟的分割，我分成/ , /home , swap, 使用cfdisk 分配。
+      * 指令：**lsblk**, 可以查看目前的分割。  
+  
+## 6. 格式化分割區  
+      * 指令：**mkfs.ext4 /dev/sda1**, for /
+      * 指令：**mkfs.ext4 /dev/sda3**, for /home
+      * 指令：**mkswap /dev/sda2**, for swap
+      * 指令：**swapon /dev/sda2**, 啟動swap  
+     
+# 7. 掛載
+      * 指令：**mount /dev/sda1 /mnt**
+      * 指令：**mkdir /mnt/home**, **mount /dev/sda3 /mnt/home**  
 
+# 8. 安裝
 
