@@ -63,8 +63,31 @@
       * 指令：hwclock --systohc --utc  
   
 # 14. 設定Hostname  
-      * 指令：echo myname > /etc/hostname
-      
+      * 指令：echo myname > /etc/hostname   
+  
+# 15. 建立初始的ramdisk環境 
+      * 指令：mkinitcpio -p linux  
+  
+# 16. 先下載無線網路的一些工具  
+      * 指令： iw, wpa_supplicant, wireless_tools, dialog  
+  
+# 17. 設定root密碼  
+      * 指令：passwd  
+  
+# 18. 新增使用者帳號和密碼  
+      * 指令：useradd -m -g users -s /bin/bash username
+      * 指令：passwd username, 設定密碼  
+  
+# 19. 建立開機表單  
+      * 指令：pacman -S grub-bios, 下載grub
+      * 指令：grub-install --target=i386-pc --recheck /dev/sda
+      * 指令：cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+      * 指令：grub-mkconfig -o /boot/grub/grub.cfg  
+  
+# 20.安裝結束 
+      * 指令：exit
+      * 指令：umount /mnt /mnt/home
+      * 指令：reboot
 
 
 
