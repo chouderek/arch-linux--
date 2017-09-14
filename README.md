@@ -31,63 +31,63 @@
 * 指令：lsblk, 可以查看目前的分割。  
   
 ## 6. 格式化分割區  
-      * 指令：mkfs.ext4 /dev/sda1, for /
-      * 指令：mkfs.ext4 /dev/sda3, for /home
-      * 指令：mkswap /dev/sda2, for swap
-      * 指令：swapon /dev/sda2, 啟動swap  
+* 指令：mkfs.ext4 /dev/sda1, for /
+* 指令：mkfs.ext4 /dev/sda3, for /home
+* 指令：mkswap /dev/sda2, for swap
+* 指令：swapon /dev/sda2, 啟動swap  
      
 # 7. 掛載
-      * 指令：mount /dev/sda1 /mnt
-      * 指令：mkdir /mnt/home, mount /dev/sda3 /mnt/home  
+* 指令：mount /dev/sda1 /mnt
+* 指令：mkdir /mnt/home, mount /dev/sda3 /mnt/home  
 
 # 8. 安裝
-      * 指令：vi /etc/pacman.d/mirrorlist, 可以把前面的server取消掉，把臺灣排在第一順位。
-      * 指令：pacstrap -i /mnt base base-devel, 開始安裝基本的程式  
+* 指令：vi /etc/pacman.d/mirrorlist, 可以把前面的server取消掉，把臺灣排在第一順位。
+* 指令：pacstrap -i /mnt base base-devel, 開始安裝基本的程式  
   
 # 9. 產生fstab  
-      * 指令：genfstab -U -p /mnt >> /mnt/etc/fstab, 用genfstab指令產生fstab  
+* 指令：genfstab -U -p /mnt >> /mnt/etc/fstab, 用genfstab指令產生fstab  
   
 # 10. 切換帳號  
-      * 指令：arch-chroot /mnt  
+* 指令：arch-chroot /mnt  
   
 # 11. 設定語系  
-      * 指令： vi /etc/locale.gen,修改把#zh_TW.UTF-8 UTF-8 和#zh_TW BIG5 前面的#拿掉
-      * 指令：locale-gen, 重新產生一次語系
-      * 指令：echo LANG=en_US.UTF-8 > /etc/locale.conf
-      * 指令：export LANG=en_US.UTF-8  
+* 指令： vi /etc/locale.gen,修改把#zh_TW.UTF-8 UTF-8 和#zh_TW BIG5 前面的#拿掉
+* 指令：locale-gen, 重新產生一次語系
+* 指令：echo LANG=en_US.UTF-8 > /etc/locale.conf
+* 指令：export LANG=en_US.UTF-8  
   
 # 12. 設定時區  
-      * 指令：ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime  
+* 指令：ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime  
   
 # 13. 設定硬體時鐘  
-      * 指令：hwclock --systohc --utc  
+* 指令：hwclock --systohc --utc  
   
 # 14. 設定Hostname  
-      * 指令：echo myname > /etc/hostname   
+* 指令：echo myname > /etc/hostname   
   
 # 15. 建立初始的ramdisk環境 
-      * 指令：mkinitcpio -p linux  
+* 指令：mkinitcpio -p linux  
   
 # 16. 先下載無線網路的一些工具  
-      * 指令： iw, wpa_supplicant, wireless_tools, dialog  
+* 指令： iw, wpa_supplicant, wireless_tools, dialog  
   
 # 17. 設定root密碼  
-      * 指令：passwd  
+* 指令：passwd  
   
 # 18. 新增使用者帳號和密碼  
-      * 指令：useradd -m -g users -s /bin/bash username
-      * 指令：passwd username, 設定密碼  
+* 指令：useradd -m -g users -s /bin/bash username
+* 指令：passwd username, 設定密碼  
   
 # 19. 建立開機表單  
-      * 指令：pacman -S grub-bios, 下載grub
-      * 指令：grub-install --target=i386-pc --recheck /dev/sda
-      * 指令：cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
-      * 指令：grub-mkconfig -o /boot/grub/grub.cfg  
+* 指令：pacman -S grub-bios, 下載grub
+* 指令：grub-install --target=i386-pc --recheck /dev/sda
+* 指令：cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+* 指令：grub-mkconfig -o /boot/grub/grub.cfg  
   
 # 20.安裝結束 
-      * 指令：exit
-      * 指令：umount /mnt /mnt/home
-      * 指令：reboot
+* 指令：exit
+* 指令：umount /mnt /mnt/home
+* 指令：reboot
 
 
 
