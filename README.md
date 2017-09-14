@@ -5,30 +5,30 @@
   
 
 ## 1. 安裝前準備  
-    [官網下載ISO 安裝映像檔, 然後使用dd指令將iso檔存進USB隨身碟][1]  
-      指令： dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync  
+[官網下載ISO 安裝映像檔, 然後使用dd指令將iso檔存進USB隨身碟][1]  
+指令： dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync  
 
 [1]:https://wiki.archlinux.org/index.php/USB_flash_installation_media
 
 ## 2. 確認開機模式  
-    指令： ls /sys/firmware/efi/efivars  
+指令： ls /sys/firmware/efi/efivars  
 >若此資料夾不存在，代表就可能是bios開機  
   
 ## 3. 網路連線  
-    若使用wifi上網,要先確認介面名稱。  
-    1. 指令：ip link, 確認介面名稱爲wlpxxxxx  
-    2. 指令：wifi-menu wlpxxxxx, 連接上網。  
+若使用wifi上網,要先確認介面名稱。  
+1. 指令：ip link, 確認介面名稱爲wlpxxxxx  
+2. 指令：wifi-menu wlpxxxxx, 連接上網。  
   
 ## 4. 更新系統時間  
-    指令：timedatectl set-ntp true  
+指令：timedatectl set-ntp true  
   
 ## 5. 分割硬碟  
-      * 指令：fdisk -l, 可以查看硬碟名稱,我的硬碟是/dev/sda1和/dev/sda2
-      * 指令：fdisk /dev/sda, 接着要刪除先前的分割表，並建立新的分割表。
-      * 接著在fdisk 的command 下, 輸入p查看, d 刪除, n 建立, w 寫入。  
-      * 接著使用cfdisk指令, 會有圖形化的分割。
-      * 硬碟的分割，我分成/ , /home , swap, 使用cfdisk 分配。
-      * 指令：lsblk, 可以查看目前的分割。  
+* 指令：fdisk -l, 可以查看硬碟名稱,我的硬碟是/dev/sda1和/dev/sda2
+* 指令：fdisk /dev/sda, 接着要刪除先前的分割表，並建立新的分割表。
+* 接著在fdisk 的command 下, 輸入p查看, d 刪除, n 建立, w 寫入。  
+* 接著使用cfdisk指令, 會有圖形化的分割。
+* 硬碟的分割，我分成/ , /home , swap, 使用cfdisk 分配。
+* 指令：lsblk, 可以查看目前的分割。  
   
 ## 6. 格式化分割區  
       * 指令：mkfs.ext4 /dev/sda1, for /
