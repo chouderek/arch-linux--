@@ -16,3 +16,14 @@
 1. 指令：pacman -S feh
 
 >執行startx, 就會進入i3視窗環境。
+
+## 安裝中文輸入
+1.指令：pacman -S ibus ibus-chewing, 安裝新酷音
+2.安裝完後，在$HOME/.xinitrc 新增
+*export GTK_IM_MODULE=ibus
+*export XMODIFIERS=@im=ibus
+*export QT_IM_MODULE=ibus
+
+
+
+
